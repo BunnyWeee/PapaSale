@@ -1,0 +1,24 @@
+<h1>User list</h1>
+
+<%= link_to 'new user', new_user_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>name</td>
+      <td>gender</td>
+      <td>avatar</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td> <%= user.name %> </td>
+        <td> <%= user.gender %> </td>
+        <td>
+          <%= image_tag user.avatar.variant(resize_to_fit: [200, 200]) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
