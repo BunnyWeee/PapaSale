@@ -2,7 +2,9 @@
 
 <textarea id="file-picker"></textarea>
 
-<%= link_to 'new user', new_user_path %>
+<%= link_to 'new user <br>'.html_safe, new_user_path %>
+<%= link_to 'user list <br>'.html_safe, users_path %>
+<%= link_to 'post list', posts_path %>
 
 <script>
 

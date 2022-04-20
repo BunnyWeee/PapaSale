@@ -1,0 +1,16 @@
+<h1>New Post</h1>
+
+<%= form_for(@post) do |post| %>
+  <%= post.label :title, '標題' %>
+  <%= post.text_field :title %>
+
+  <%= post.label :content, '內容' %>
+  <%= post.text_field :content %>
+
+  <%= post.label :images, '圖片' %>
+  <%= post.file_field :images, multiple: true %>
+
+  <%= post.submit %>
+<% end %>
+
+<%= link_to '首頁', root_path %>
