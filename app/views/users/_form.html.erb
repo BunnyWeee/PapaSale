@@ -1,0 +1,9 @@
+<%= simple_form_for user do |user| %>
+  <%= user.input :name, label: '姓名' %>
+
+  <%= user.input :gender, label: '性別' %>
+
+  <%= user.input :avatar, label: '大頭貼', as: :file %>
+
+  <%= user.submit %>
+<% end %>

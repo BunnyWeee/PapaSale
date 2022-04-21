@@ -1,16 +1,5 @@
 <h1>New User</h1>
 
-<%= form_for(@user) do |user| %>
-  <%= user.label :name, '姓名' %>
-  <%= user.text_field :name %>
-
-  <%= user.label :gender, '性別' %>
-  <%= user.text_field :gender %>
-
-  <%= user.label :avatar, '大頭貼' %>
-  <%= user.file_field :avatar %>
-
-  <%= user.submit %>
-<% end %>
+<%= render 'form', user: @user %>
 
 <%= link_to '首頁', root_path %>
