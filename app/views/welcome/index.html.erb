@@ -4,7 +4,9 @@
 
 <%= link_to 'new user <br>'.html_safe, new_user_path %>
 <%= link_to 'user list <br>'.html_safe, users_path %>
-<%= link_to 'post list', posts_path %>
+<%= link_to 'post list <br>'.html_safe, posts_path %>
+<%= current_user.email if current_user %>
+<%= link_to 'Logout', destroy_user_session_path, :method => :delete  %>
 
 <script>
 

@@ -16,7 +16,7 @@
         <td> <%= user.name %> </td>
         <td> <%= user.gender %> </td>
         <td>
-          <%= image_tag user.avatar.variant(resize_to_fit: [200, 200]) %>
+          <%= image_tag user.avatar.variant(resize_to_fit: [200, 200]) if user.avatar.attached? %>
         </td>
       </tr>
     <% end %>
