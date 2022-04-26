@@ -1,0 +1,24 @@
+<%= simple_form_for @post,
+  wrapper: :floating_labels_form,
+  wrapper_mappings: {
+    select:        :floating_labels_select,
+    file:          :vertical_file
+  } do |f| %>
+
+  <%= f.error_notification %>
+
+  <%#= render partial: "shared/form_unused_as_hidden", locals: {
+    f: f, fields: [:name, :avatar, :birthday, :color, :fruit, :pill, :choises, :active, :friends, :mood, :awake, :first_kiss]
+  } %>
+
+  <%= f.input :title, label: '標題' %>
+
+  <%= f.input :content, label: '內容' %>
+
+  <%#= f.input :language, collection: User::LANGUAGE, prompt: :translate %>
+
+  <%= f.input :images, label: '圖片', input_html: { multiple: true }, as: :file %>
+
+  <%= f.button :submit, class: "btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>

@@ -1,13 +1,5 @@
-<h1>New Post</h1>
-
-<%= simple_form_for @post do |post| %>
-  <%= post.input :title, label: '標題' %>
-
-  <%= post.input :content, label: '內容' %>
-
-  <%= post.input :images, label: '圖片', input_html: { multiple: true }, as: :file %>
-
-  <%= post.submit %>
-<% end %>
-
-<%= link_to '首頁', root_path %>
+<div class="app-example container">
+  <div class="row">
+    <%= render partial: "form", layout: "card_simple_form", locals: { title: "Floating Labels Form" } %>
+  </div>
+</div>

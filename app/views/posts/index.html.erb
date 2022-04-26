@@ -1,27 +1,24 @@
 <h1>Post here</h1>
 
-<%= link_to 'new post', new_post_path %>
-
-<table>
-  <thead>
-    <tr>
-      <td>title</td>
-      <td>content</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td> <%= post.title %> </td>
-        <td> <%= post.content %> </td>
-        <td>
-          <% if post.images.attached? %>
-            <% (0...post.images.count).each do |img| %>
-              <%= image_tag (post.images[img]).variant(resize_to_fit: [400, 400]) %>
-            <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @posts.each do |post| %>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <% if post.images.attached? %>
+          <%= image_tag post.images[0].variant(resize_to_fit: [400, 400]), class: 'img-fluid rounded-start' %>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= post.title %>
+          </h5>
+          <p class="card-text">
+            <%= post.content %>
+          </p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

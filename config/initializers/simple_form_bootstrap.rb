@@ -100,16 +100,15 @@ SimpleForm.setup do |config|
   end
 
   # vertical file input
-  config.wrappers :vertical_file, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :vertical_file, class: 'mb-3' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
     b.optional :minlength
     b.optional :readonly
-    b.use :label
-    b.use :input, class: 'form-control-file', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
-    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+    b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :full_error, wrap_with: { class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { class: 'form-text' }
   end
 
   # vertical multi select
@@ -385,7 +384,7 @@ SimpleForm.setup do |config|
   # Floating Labels form
   #
   # floating labels default_wrapper
-  config.wrappers :floating_labels_form, tag: 'div', class: 'form-label-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :floating_labels_form, class: 'form-floating mb-3' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -395,18 +394,18 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
-    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+    b.use :full_error, wrap_with: { class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { class: 'form-text' }
   end
 
   # custom multi select
-  config.wrappers :floating_labels_select, tag: 'div', class: 'form-label-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :floating_labels_select, class: 'form-floating mb-3' do |b|
     b.use :html5
     b.optional :readonly
-    b.use :input, class: 'custom-select', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :input, class: 'form-select', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
-    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+    b.use :full_error, wrap_with: { class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { class: 'form-text' }
   end
 
 
