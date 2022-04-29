@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 # view
 gem 'simple_form', '~> 5.1'
+# Toll
+gem 'browser', '~> 5.3', '>= 5.3.1'
+gem 'nokogiri', '~> 1.13', '>= 1.13.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
