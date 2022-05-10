@@ -1,7 +1,7 @@
 module PostsHelper
   def render_html_with_lazyload(html)
     content_html = Nokogiri::HTML(html).css("body")
-    content_html.css("img").each { |img| to_lazy_image!(img) }
+    # content_html.css("img").each { |img| to_lazy_image!(img) }
 
     content_html.inner_html.html_safe
   end

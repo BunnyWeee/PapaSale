@@ -1,1 +1,9 @@
-<h1>Post here</h1>
+<div class="container-lg">
+  <h1 class="post-title">
+    <%= @post.title %>
+  </h1>
+
+  <section class="content">
+    <%= render_html_with_lazyload(@post.content) %>
+  </section>
+</div>

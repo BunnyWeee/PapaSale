@@ -163,4 +163,5 @@ en:
         friends: Number of Friends
       post:
         title: Title
+        description: Description
         content: Content

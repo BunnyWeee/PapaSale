@@ -1,4 +1,4 @@
-<h1>Post here</h1>
+<h1>Post list</h1>
 
 <% @posts.each do |post| %>
   <div class="card mb-3" style="max-width: 540px;">
@@ -14,11 +14,18 @@
             <%= post.title %>
           </h5>
           <p class="card-text">
-            <%= render_html_with_lazyload(post.content) %>
+            <%= post.description %>
           </p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <%= "更新於：#{ post.updated_at.to_s(:long) }" %>
+            </small>
+          </p>
         </div>
+        <%= link_to '', post_path(post), class: 'stretched-link' %>
       </div>
     </div>
   </div>
+  <%= link_to '刪除', post, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to '編輯', edit_post_path(post), class: 'btn btn-success' %>
 <% end %>
