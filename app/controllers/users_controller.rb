@@ -13,13 +13,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      redirect_to users_path, notice: "新增 user 成功!"
-    else
-      render :new
-    end
   end
 
   def edit

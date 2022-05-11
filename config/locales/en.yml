@@ -88,10 +88,10 @@ en:
         first_kiss: First kiss
     hints:
       user:
-        name: Text input example
+        name: Your name
         email: We'll never share your email with anyone else.
         password: Password input example
-        avatar: File input example
+        avatar: Profile picture
         bio: Textarea input example
         birthday: Date multi select example
         color: Collection as inline radio buttons example
@@ -161,6 +161,7 @@ en:
         password: Password
         bio: Tell us your story
         friends: Number of Friends
+        password_confirmation: Password confirmation
       post:
         title: Title
         description: Description
