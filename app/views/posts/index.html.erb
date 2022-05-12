@@ -1,31 +1,42 @@
 <h1>Post list</h1>
 
-<% @posts.each do |post| %>
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <% if post.images.attached? %>
-          <%= image_tag post.images[0].variant(resize_to_fit: [400, 400]), class: 'img-fluid rounded-start' %>
-        <% end %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= post.title %>
-          </h5>
-          <p class="card-text">
-            <%= post.description %>
-          </p>
-          <p class="card-text">
-            <small class="text-muted">
-              <%= "更新於：#{ post.updated_at.to_s(:long) }" %>
-            </small>
-          </p>
+<section class="posts-list">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <% if post.images.attached? %>
+                <%= image_tag post.images[0].variant(resize_to_fit: [400, 400]), class: 'img-fluid rounded-start' %>
+              <% end %>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= post.title %>
+                </h5>
+                <p class="card-text">
+                  <%= post.description %>
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <%= "更新於：#{ post.updated_at.to_s(:long) }" %>
+                  </small>
+                </p>
+              </div>
+              <%= link_to '', post_path(post), class: 'stretched-link' %>
+            </div>
+          </div>
         </div>
-        <%= link_to '', post_path(post), class: 'stretched-link' %>
+
+        <div class="col-6">
+          <%= link_to '刪除', post, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to '編輯', edit_post_path(post), class: 'btn btn-success' %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <%= link_to '刪除', post, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
-  <%= link_to '編輯', edit_post_path(post), class: 'btn btn-success' %>
-<% end %>
+</section>
+

@@ -6,3 +6,24 @@ section.content {
     }
   }
 }
+
+section.posts-list {
+  .card {
+    img {
+      padding-top: 1rem;
+      padding-left: 1rem;
+    }
+
+    .card-body {
+      height: 226px;
+
+      .card-text:first-of-type {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
