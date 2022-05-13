@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 
 import * as bootstrap from 'bootstrap'
 import "../stylesheets/application"
+import '../googlesheet'
+import '../getDataFromGoogleSheet'
 
 document.addEventListener("turbolinks:load", () => {
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
