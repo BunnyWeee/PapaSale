@@ -11,6 +11,8 @@ gem 'mysql2', '~> 0.5.4'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '~> 4.2'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -38,6 +40,7 @@ gem 'nokogiri', '~> 1.13', '>= 1.13.4'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "pry-rails"
 end
 
 group :development do
@@ -50,6 +53,8 @@ group :development do
   gem 'pry', '~> 0.14.1'
   gem "capistrano", "~> 3.17", require: false
   gem 'capistrano-rails', '~> 1.6', '>= 1.6.2', require: false
+  gem 'capistrano-rbenv', '~> 2.2', require: false
+  gem 'capistrano3-puma', '~> 5.2', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

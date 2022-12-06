@@ -17,9 +17,19 @@
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
 
-# role :app, %w{deploy@example.com}, my_property: :my_value
-# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
-# role :db,  %w{deploy@example.com}
+role :app, %w{web13.techbang.com}
+role :web, %w{web13.techbang.com}
+role :db,  %w{web13.techbang.com}, primary: true
+
+# set :branch, 'develop'
+set :branch, ENV['BRANCH'] || `git rev-parse --abbrev-ref HEAD`.chomp
+set :rails_env, 'staging'
+set :keep_releases, 10
+
+set :ssh_options, {
+  user: "apps",
+  forward_agent: true
+}
 
 
 
