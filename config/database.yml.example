@@ -15,8 +15,8 @@ default: &DEFAULT
   reconnect: false
   pool: 5
   host: localhost
-  username: root
-  password: <%= ENV['PAPASALE_DATABASE_PASSWORD'] %>
+  username:
+  password:
 development:
   <<: *DEFAULT
   database: papasale_development

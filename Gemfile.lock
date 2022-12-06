@@ -91,6 +91,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -243,6 +247,7 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.2)
   capistrano3-puma (~> 5.2)
   devise (~> 4.8, >= 4.8.1)
+  dotenv-rails (~> 2.8, >= 2.8.1)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
