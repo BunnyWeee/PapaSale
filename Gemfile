@@ -5,8 +5,8 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.7'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+# Use mysql2 as the database for Active Record
+gem 'mysql2', '~> 0.5.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -48,6 +48,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry', '~> 0.14.1'
+  gem "capistrano", "~> 3.17", require: false
+  gem 'capistrano-rails', '~> 1.6', '>= 1.6.2', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
