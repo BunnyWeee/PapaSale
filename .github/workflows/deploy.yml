@@ -1,0 +1,63 @@
+name: Deploy_staging_V2
+
+on:
+  # Deploy on merge to main
+  push:
+    branches:
+      - develop
+#  # Manually deploy branch
+  workflow_dispatch:
+#    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Capistrano Deploy to Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install SSH key to Server
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: github-actions
+          known_hosts: ${{ secrets.SSH_HOST }}
+          config: |
+            host web13.techbang.com
+              IdentityFile ~/.ssh/github-actions
+              IdentitiesOnly yes
+              ForwardAgent yes
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      # - name: Setup SSH for local repo pulls
+      #   uses: webfactory/ssh-agent@v0.7.0
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.6.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      # - name: add fake yaml
+      #   run: cp config/slack_deploy.yml config/slack.yml
+
+      - name: Add public IP to AWS security group
+        uses: sohelamin/aws-security-group-add-ip-action@master
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'ap-northeast-1'
+          aws-security-group-id: ${{ secrets.AWS_SECURITY_GROUP_ID }}
+          port: '22'
+          to-port: '30'
+          protocol: 'tcp'
+          description: 'GitHub Action'
+
+      - name: Deploy to staging
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/github-actions
+          bundle exec cap staging deploy

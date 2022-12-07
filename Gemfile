@@ -37,6 +37,8 @@ gem 'simple_form', '~> 5.1'
 gem 'browser', '~> 5.3', '>= 5.3.1'
 gem 'nokogiri', '~> 1.13', '>= 1.13.4'
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
+gem 'ed25519', '~> 1.3'
+gem 'bcrypt_pbkdf', '~> 1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
