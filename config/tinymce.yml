@@ -1,0 +1,10 @@
+default:
+  toolbar:
+    - styleselect | bold italic | undo redo
+    - image | link
+  plugins:
+    - image
+    - link
+  images_upload_url: '/uploader/image' # for automatic_uploads
+  images_upload_credentials: true # sends session information with the upload
+  relative_urls : false

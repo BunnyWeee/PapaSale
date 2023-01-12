@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users, :posts
+
+  post 'uploader/image', to: 'uploader#image'
 end
