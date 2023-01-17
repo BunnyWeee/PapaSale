@@ -106,6 +106,8 @@ en:
         first_kiss: Datetime multi select example
         active: Boolean as radio button example
         terms: Boolean as check box example
+      post:
+        images: list picture
     options:
       user:
         color:
@@ -166,3 +168,4 @@ en:
         title: Title
         description: Description
         content: Content
+        images: Image

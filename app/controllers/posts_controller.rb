@@ -2,16 +2,20 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  include PostSetData
+
   def index
     @posts = Post.all
   end
 
   def new
     @post = Post.new
+    set_post_user
   end
 
   def create
     @post = Post.new(post_params)
+    set_post_user
 
     if @post.save
       redirect_to posts_path, notice: 'new post created!'
@@ -30,6 +34,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    set_post_user
     if @post.update(post_params)
       redirect_to posts_path, notice: 'Post update successfully!'
     else
@@ -45,7 +50,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :content, images: [])
+    params.require(:post).permit(:title, :description, :content, :if_headline, images: [])
   end
 
   def set_post

@@ -13,11 +13,12 @@
 
   <%= f.input :title, label: '標題' %>
 
-  <%= f.input :description, label: '描述' %>
+  <%= f.input :description, label: '引言', input_html: { style: 'height: 100px' } %>
 
   <%= f.input :content, input_html: { class: "tinymce js-post-content", value: @post.content } %>
 
   <%#= f.input :language, collection: User::LANGUAGE, prompt: :translate %>
+  <%= f.input :if_headline, label: '是否為頭條文章', as: :boolean %>
 
   <%= f.input :images, label: '圖片', input_html: { multiple: true }, as: :file %>
 

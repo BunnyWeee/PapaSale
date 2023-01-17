@@ -1,0 +1,17 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <% posts.each do |post| %>
+    <div class="col">
+      <div class="card">
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.images.first, class: 'card-img-top' %>
+          <%= content_tag(:div, class: 'card-body') do %>
+            <%= content_tag(:h5, post.title, class: 'card-title') %>
+            <%#= content_tag(:div, class: 'info') do %>
+              <%#= content_tag(:span, post.) %>
+            <%# end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
