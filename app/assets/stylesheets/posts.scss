@@ -10,13 +10,10 @@ section.content {
 section.posts-list {
   .card {
     img {
-      padding-top: 1rem;
-      padding-left: 1rem;
+      padding: 1em 0 1em 1em;
     }
 
     .card-body {
-      height: 226px;
-
       .card-text:first-of-type {
         overflow: hidden;
         text-overflow: ellipsis;

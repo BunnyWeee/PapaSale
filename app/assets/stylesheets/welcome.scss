@@ -1,3 +1,8 @@
+$carousel-control-color:             #fff;
+$carousel-control-width:             10%;
+$carousel-control-opacity:           .5;
+$carousel-control-icon-width:        3rem;
+
 .welcome-table {
   display: none;
 }
@@ -7,20 +12,36 @@
   padding: 1.5rem;
   margin: auto;
 
-  .carousel-inner {
-    .carousel-item {
-      .carousel-caption {
-        background: linear-gradient(to Top, black, transparent);
-        width: 100%;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        h5 {
-          margin: auto;
+  .carousel {
+    margin-bottom: 20px;
+
+    .carousel-inner {
+      .carousel-item {
+        .carousel-caption {
+          background: linear-gradient(to Top, black, transparent);
+          width: 100%;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          h5 {
+            margin: auto;
+          }
         }
+      }
+
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      width: $carousel-control-width;
+      .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: black;
+        width: $carousel-control-icon-width;
+        height: $carousel-control-icon-width;
+        opacity: 0.8;
       }
     }
   }
+
 
   .row {
     .col {

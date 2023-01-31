@@ -1,10 +1,10 @@
 <h1>Post list</h1>
 
 <section class="posts-list">
-  <div class="row">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
     <% @posts.each do |post| %>
       <div class="col-md-6">
-        <div class="card">
+        <div class="card border-info">
           <div class="row g-0">
             <div class="col-md-6">
               <% if post.images.attached? %>
@@ -18,9 +18,6 @@
                   <%= post.title %>
                 </h5>
                 <p class="card-text">
-                  <%= post.description %>
-                </p>
-                <p class="card-text">
                   <small class="text-muted">
                     <%= "更新於：#{ post.updated_at.to_s(:long) }" %>
                   </small>
@@ -32,8 +29,10 @@
         </div>
 
         <div class="col-6">
-          <%= link_to '刪除', post, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
-          <%= link_to '編輯', edit_post_path(post), class: 'btn btn-success' %>
+          <% if current_user %>
+            <%= link_to '刪除', post, method: :delete, data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
+            <%= link_to '編輯', edit_post_path(post), class: 'btn btn-success' %>
+          <% end %>
         </div>
       </div>
     <% end %>
