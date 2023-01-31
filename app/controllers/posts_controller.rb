@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def update
     set_post_user
+    authorize @post, :update?
     if @post.update(post_params)
       redirect_to posts_path, notice: 'Post update successfully!'
     else

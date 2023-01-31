@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  resourcify
+
   has_many_attached :images
   belongs_to :user
 

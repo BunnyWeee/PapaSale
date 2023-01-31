@@ -31,7 +31,11 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Auth
 gem 'devise', '~> 4.8', '>= 4.8.1'
+
+# # authorization gems
 gem 'pundit', '~> 2.3'
+gem 'rolify', '~> 6.0'
+
 # view
 gem 'simple_form', '~> 5.1'
 # Toll
