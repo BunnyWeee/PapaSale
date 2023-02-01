@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
+    @user.role_ids = params[:user][:roles]
 
     if @user.update(user_params)
       redirect_to users_path, notice: "update successfully"
@@ -31,6 +32,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :gender, :avatar)
+    params.require(:user).permit(:name, :gender, :avatar, :role_ids)
   end
 end

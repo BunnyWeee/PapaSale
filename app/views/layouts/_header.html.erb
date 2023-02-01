@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark text-white">
+<header class="p-3 bg-dark text-white sticky-top">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -10,7 +10,9 @@
         <li> <%= link_to 'user list', users_path, class: 'nav-link px-2 text-white' %> </li>
         <li> <%= link_to 'new user', new_user_path, class: 'nav-link px-2 text-white' %> </li>
         <li> <%= link_to 'post list', posts_path, class: 'nav-link px-2 text-white' %> </li>
-        <li> <%= link_to 'new post', new_post_path, class: 'nav-link px-2 text-white' %> </li>
+        <% if enough_permissions?(current_user) %>
+          <li> <%= link_to 'new post', new_post_path, class: 'nav-link px-2 text-white' %> </li>
+        <% end %>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -19,10 +21,11 @@
 
       <div class="text-end">
         <% if current_user %>
-          <%= "Hello,#{ current_user.email }!!" %>
+          <%= "Hello,#{ current_user.name }!!" %>
+          <%= image_tag current_user.avatar.variant(resize_to_fit: [40, 40]) %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger'  %>
         <% else %>
-          <%= link_to 'login', new_user_session_path, class: 'btn btn-outline-light me-2' %>
+          <%= link_to 'login', new_user_session_path, class: 'btn btn-outline-primary me-2' %>
           <%= link_to 'Sign-up', new_user_registration_path, class: 'btn btn-warning' %>
         <% end %>
       </div>

@@ -38,6 +38,7 @@ gem 'rolify', '~> 6.0'
 
 # view
 gem 'simple_form', '~> 5.1'
+gem 'rails-i18n', '~> 7.0', '>= 7.0.6'
 # Toll
 gem 'browser', '~> 5.3', '>= 5.3.1'
 gem 'nokogiri', '~> 1.13', '>= 1.13.4'

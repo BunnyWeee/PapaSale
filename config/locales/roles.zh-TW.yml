@@ -1,0 +1,6 @@
+zh-TW:
+  roles:
+    name:
+      admin: '網站管理員'
+      editor: '編輯'
+      normal: '一般使用者'
