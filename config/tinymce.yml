@@ -1,10 +1,15 @@
 default:
   toolbar:
     - styleselect | bold italic | undo redo
-    - image | link
+    - image | link | media | code
   plugins:
     - image
     - link
+    - media
+    - mediaembed
+    - code
   images_upload_url: '/uploader/image' # for automatic_uploads
   images_upload_credentials: true # sends session information with the upload
   relative_urls : false
+  mediaembed_service_url: 'SERVICE_URL'
+  mediaembed_max_width: 450
