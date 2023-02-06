@@ -45,6 +45,7 @@ gem 'nokogiri', '~> 1.13', '>= 1.13.4'
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 gem 'ed25519', '~> 1.3'
 gem 'bcrypt_pbkdf', '~> 1.1'
+gem 'recaptcha', '5.9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
