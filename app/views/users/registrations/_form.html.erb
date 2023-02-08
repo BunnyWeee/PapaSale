@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2><%= t('registrations.sign_up') %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -11,7 +11,7 @@
                 wrapper: :floating_labels_form %>
     <%= f.input :password,
                 required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                hint: t('simple_form.hints.minimum_words', count: @minimum_password_length),
                 input_html: { autocomplete: "new-password" },
                 wrapper: :floating_labels_form %>
     <%= f.input :password_confirmation,
@@ -19,10 +19,9 @@
                 input_html: { autocomplete: "new-password" },
                 wrapper: :floating_labels_form %>
 
-    <%= f.input :name, label: '姓名', wrapper: :floating_labels_form %>
+    <%= f.input :name, wrapper: :floating_labels_form %>
 
     <%= f.input :gender,
-                label: '性別',
                 as: :select,
                 collection: [['0', '女'], ['1', '男']],
                 label_method: :second,
@@ -32,14 +31,14 @@
     <%= f.input :avatar, label: '大頭貼', as: :file, wrapper: :vertical_file %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: 'btn btn-success' %>
+  <div class="form-actions d-grid gap-2">
+    <%= f.button :submit, t('registrations.sign_up'), class: 'btn-success mb-4' %>
+  </div>
+
+  <div class="form-group other-infos">
     <span>
       已有帳號？點我<%= link_to '登入', new_user_session_path %>
     </span>
-  </div>
-
-  <div class="form-group">
     <%= flash[:recaptcha_error] %>
     <%= recaptcha_tags %>
   </div>

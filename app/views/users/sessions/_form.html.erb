@@ -1,4 +1,4 @@
-<h2>Log in</h2>
+<h2><%= t('sessions.log_in') %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -11,13 +11,16 @@
                 required: false,
                 input_html: { autocomplete: "current-password" },
                 wrapper: :floating_labels_form %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, input_html: { class: 'mb-3' }, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in", class: 'btn btn-success' %>
+  <div class="form-actions d-grid gap-2">
+    <%= f.button :submit, t('sessions.log_in'), class: 'btn-success mb-4' %>
+  </div>
+
+  <div class="form-group other-infos">
     <span>
-      還未有會員？點我<%= link_to '註冊', new_user_registration_path %>
+      還沒有加入會員？點我<%= link_to '註冊', new_user_registration_path %>
     </span>
   </div>
 <% end %>

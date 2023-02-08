@@ -1,0 +1,22 @@
+.app-example {
+  .row {
+    .form-class {
+      margin: auto;
+
+      .card-body {
+        h2 {
+          margin-bottom: 1rem;
+        }
+
+        .other-infos {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
+
+    }
+  }
+}
