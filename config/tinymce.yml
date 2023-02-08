@@ -1,13 +1,14 @@
 default:
   toolbar:
     - styleselect | bold italic | undo redo
-    - image | link | media | code
+    - image | link | media | code | preview
   plugins:
     - image
     - link
     - media
     - mediaembed
     - code
+    - preview
   images_upload_url: '/uploader/image' # for automatic_uploads
   images_upload_credentials: true # sends session information with the upload
   relative_urls : false

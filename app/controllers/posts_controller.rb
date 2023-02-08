@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   include PostSetData
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(images_attachments: :blob)
   end
 
   def new

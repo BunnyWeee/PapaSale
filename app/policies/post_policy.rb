@@ -8,6 +8,6 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.roles_name.join('') == 'admin'
+    user.roles_name & %w(admin editor) != []
   end
 end
