@@ -7,11 +7,10 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li> <%= link_to '首頁', root_path, class: 'nav-link px-2 text-white' %> </li>
-        <li> <%= link_to 'user list', users_path, class: 'nav-link px-2 text-white' %> </li>
-        <li> <%= link_to 'new user', new_user_path, class: 'nav-link px-2 text-white' %> </li>
-        <li> <%= link_to 'post list', posts_path, class: 'nav-link px-2 text-white' %> </li>
+        <li> <%= link_to '使用者列表', users_path, class: 'nav-link px-2 text-white' %> </li>
+        <li> <%= link_to '文章列表', posts_path, class: 'nav-link px-2 text-white' %> </li>
         <% if enough_permissions?(current_user) %>
-          <li> <%= link_to 'new post', new_post_path, class: 'nav-link px-2 text-white' %> </li>
+          <li> <%= link_to '新增文章', new_post_path, class: 'nav-link px-2 text-white' %> </li>
         <% end %>
       </ul>
 
@@ -25,8 +24,8 @@
           <%= image_tag current_user.avatar.variant(resize_to_fit: [40, 40]) %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger'  %>
         <% else %>
-          <%= link_to 'login', new_user_session_path, class: 'btn btn-outline-primary me-2' %>
-          <%= link_to 'Sign-up', new_user_registration_path, class: 'btn btn-warning' %>
+          <%= link_to t('sessions.log_in'), new_user_session_path, class: 'btn btn-outline-primary me-2' %>
+          <%= link_to t('registrations.sign_up'), new_user_registration_path, class: 'btn btn-warning' %>
         <% end %>
       </div>
     </div>

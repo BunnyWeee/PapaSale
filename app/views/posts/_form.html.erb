@@ -11,19 +11,19 @@
     f: f, fields: [:name, :avatar, :birthday, :color, :fruit, :pill, :choises, :active, :friends, :mood, :awake, :first_kiss]
   } %>
 
-  <%= f.input :title, label: '標題' %>
+  <%= f.input :title %>
 
-  <%= f.input :description, label: '引言', input_html: { style: 'height: 100px' } %>
+  <%= f.input :description, input_html: { style: 'height: 100px' } %>
 
   <%= f.input :content, input_html: { class: "tinymce js-post-content", value: @post.content } %>
 
   <%#= f.input :language, collection: User::LANGUAGE, prompt: :translate %>
-  <%= f.input :if_headline, label: '是否為頭條文章', as: :boolean %>
+  <%= f.input :if_headline, as: :boolean, input_html: { class: 'mb-3' } %>
 
-  <%= f.input :images, label: '圖片', input_html: { multiple: true }, as: :file %>
+  <%= f.input :images, hint: t('simple_form.hints.post_image'), input_html: { multiple: true }, as: :file %>
 
   <%= f.button :submit, class: "btn-primary" %>
-  <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to '取消', posts_path, class: 'btn btn-outline-secondary' %>
   <%#= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
 <% end %>
 
