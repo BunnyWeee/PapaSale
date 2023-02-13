@@ -7,6 +7,17 @@
 // users page
 @import 'users';
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container-sm {
+  min-height: 100%;
+}
+.content {
+  padding-bottom: 50px; /*隨footer高度需做調整*/
+}
+
 .app-example {
   .row {
     .form-class {
@@ -31,6 +42,7 @@
 }
 
 footer {
+  margin-top: -50px; /*隨footer高度需做調整*/
   background-color: #000;
   .container {
     .row {
