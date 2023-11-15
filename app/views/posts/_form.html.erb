@@ -13,6 +13,9 @@
 
   <%= f.input :title %>
 
+  <%#= f.input :created_at, as: :date_field %>
+  <%= f.date_field :created_at %>
+
   <%= f.input :description, input_html: { style: 'height: 100px' } %>
 
   <%= f.input :content, input_html: { class: "tinymce js-post-content", value: @post.content } %>
